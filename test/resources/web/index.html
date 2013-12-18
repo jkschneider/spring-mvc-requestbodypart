@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+<script src='http://code.jquery.com/jquery-latest.min.js'></script>
+<style type="text/css">
+	td { border: 1px solid gray; padding: 10px; }	
+	.rerun { cursor: pointer; text-decoration:underline; color: blue; }
+</style>
+
+</head>
+
+<body>
+	<h3>@RequestBodyPart Test</h3>
+
+	<table>
+		<tr><td>Two objects where field name matches method parameter names</td><td id="test1"></td><td><a class="rerun" onclick="test1()">Run again</a></td></tr>
+		<tr><td>Two objects where field name differs from parameter names</td><td id="test2"></td><td><a class="rerun" onclick="test2()">Run again</a></td></tr>
+		<tr><td>Two primitive objects where field name matches method parameter names</td><td id="test3"></td><td><a class="rerun" onclick="test3()">Run again</a></td></tr>
+	</table>
+
+	<script>
+			function runTest(testId, data) {
+				$.ajax({
+					url: 'test/' + testId,
+					type: 'POST',
+					data: data,
+					success: function() { $('#' + testId).text("Success").css('background-color', 'lightgreen') },
+					error: function() { $('#' + testId).text("Fail").css('background-color', 'red') }
+				})
+			}
+	
+			$.ajaxSetup({ contentType: "application/json; charset=utf-8" })
+
+			function test1() { runTest('test1', '{ "person": { "name": "jon schneider", "age" : 30 }, "widget": { "description" : "soup", "price" : 1.25 } }') }
+			function test2() { runTest('test2', '{ "person": { "name": "jon schneider", "age" : 30 }, "widget": { "description" : "soup", "price" : 1.25 } }') }
+			function test3() { runTest('test3', '{ "name": "jon schneider", "amount" : 1.25 }') }	
+			
+			test1(); test2(); test3()
+	</script>
+</body>
+
+</html>

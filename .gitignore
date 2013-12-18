@@ -1,6 +1,2 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+tomcat.8080
+target
