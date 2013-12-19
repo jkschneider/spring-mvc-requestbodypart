@@ -58,3 +58,11 @@ Configuration isn't super clean right now due to some limitations in Spring.  Yo
 It is necessary to extend `WebMvcConfigurationSupport` in order to configure message converters and add custom argument resolvers.
 
 The argument resolver requires a Jackson object mapper, but unfortunately it is not possible to inject this mapper into the argument resolver with typical dependency injection strategies, thus the manual configuration.
+
+Building
+==========================
+From the repository root, run `mvn package`
+
+Testing
+==========================
+Start `TomcatServer` and navigate to http://localhost:8080
