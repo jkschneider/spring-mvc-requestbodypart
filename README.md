@@ -11,9 +11,8 @@ The trivial case where there we want to unmarshal the entire post body into a si
 		// implementation omitted
 	}
 	
-But what if we wanted to pass a pet owner along with the pet in the post body like so?
-	{ pet: { name: 'fluffy', type: 'dog' }, owner: { name: 'jon' } }
-
+But what if we wanted to pass a pet owner (e.g. `{ pet: { name: 'fluffy', type: 'dog' }, owner: { name: 'jon' } }`) along with the pet in the post body like so?
+	
 	@Controller
 	@RequestMapping(value = "/pets", method = RequestMethod.POST)
 	public void addPet(@RequestBody Pet pet, @RequestBody Owner owner) {
