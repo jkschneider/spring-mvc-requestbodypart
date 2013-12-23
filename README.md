@@ -12,8 +12,14 @@ public void addPet(@RequestBody Pet pet) {
 	// implementation omitted
 }
 ```
+
+Suppose we have the following post body (in JSON):
 	
-But what if we wanted to pass a pet owner (e.g. `{ pet: { name: 'fluffy', type: 'dog' }, owner: { name: 'jon' } }`) along with the pet in the post body like so?
+```javascript
+{ pet: { name: 'fluffy', type: 'dog' }, owner: { name: 'jon' } }
+```
+
+In this case, we are trying to pass a pet owner along with the pet in the post body like so:
 	
 ```java
 @Controller
