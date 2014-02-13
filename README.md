@@ -3,7 +3,7 @@ Spring MVC @RequestBodyPart
 
 The purpose of this extension is to provide a way to split a post body across multiple method parameters in a Spring MVC controller.
 
-The trivial case where there we want to unmarshal the entire post body into a single method argument is covered by Spring's built-in @RequestBody annotation
+The trivial case where we want to unmarshal the entire post body into a single method argument is covered by Spring's built-in @RequestBody annotation
 
 ```java
 @Controller
